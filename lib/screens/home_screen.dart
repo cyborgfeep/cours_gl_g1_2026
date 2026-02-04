@@ -1,4 +1,5 @@
 import 'package:cours_gl_g1_2026/models/options.dart';
+import 'package:cours_gl_g1_2026/screens/scan_screen.dart';
 import 'package:cours_gl_g1_2026/widgets/card_wave.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -84,7 +85,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Column(
                     children: [
-                      Center(child: CardWave()),
+                      Center(
+                        child: CardWave(
+                          onTap: () {
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ScanScreen(),
+                              ),
+                               (route) => true,
+                            );
+                          },
+                        ),
+                      ),
                       GridView.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 4,
@@ -124,18 +137,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    Text("10000F",style: GoogleFonts.dmSans(
-                                      color: Colors.deepPurple,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    ),),
+                                    Text(
+                                      "10000F",
+                                      style: GoogleFonts.dmSans(
+                                        color: Colors.deepPurple,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
                                   ],
                                 ),
-                                Text(DateTime.now().toIso8601String(),style: GoogleFonts.dmSans(
-                                color: Colors.grey,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                ),),
+                                Text(
+                                  DateTime.now().toIso8601String(),
+                                  style: GoogleFonts.dmSans(
+                                    color: Colors.grey,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
                               ],
                             ),
                           );

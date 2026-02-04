@@ -1,7 +1,14 @@
+import 'package:camera/camera.dart';
 import 'package:cours_gl_g1_2026/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+late List<CameraDescription> cameras;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  cameras = await availableCameras();
+
   runApp(const MyApp());
 }
 

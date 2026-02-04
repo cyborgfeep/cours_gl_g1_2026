@@ -1,5 +1,6 @@
 import 'package:cours_gl_g1_2026/models/options.dart';
 import 'package:cours_gl_g1_2026/screens/scan_screen.dart';
+import 'package:cours_gl_g1_2026/screens/transaction_screen.dart';
 import 'package:cours_gl_g1_2026/widgets/card_wave.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -93,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               MaterialPageRoute(
                                 builder: (context) => ScanScreen(),
                               ),
-                               (route) => true,
+                              (route) => true,
                             );
                           },
                         ),
@@ -176,10 +177,18 @@ class _HomeScreenState extends State<HomeScreen> {
       onTap: () {
         switch (o.title) {
           case 'Transfert':
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => TransactionScreen(pageName: o.title,)),
+            );
             break;
           case 'Paiement':
             break;
           case 'Crédit':
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => TransactionScreen(pageName: o.title,)),
+            );
             break;
           case 'Banque':
             break;
